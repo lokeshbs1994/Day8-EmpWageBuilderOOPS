@@ -15,8 +15,9 @@ public class EmpWageBuilder {
     public static void main(String[] args) {
         System.out.println("Welcome To Employee Wage builder Using OOPS concepts");
         EmpWageBuilder empWage = new EmpWageBuilder();
-        int attendance = empWage.empAttendance();
-        empWage.empDailyWages(attendance);
+        empWage.empAttendance();
+        System.out.println("================");
+        empWage.empDailyWages(empWage.empAttendance());
         System.out.println("==================");
         empWage.empMonthWage();
         System.out.println("==================");
@@ -88,7 +89,7 @@ public class EmpWageBuilder {
                     empHrs = 0;
             }
             totalEmpHrs += empHrs;
-            System.out.println("Day" + totalWorkingDays + " Emp hrs: " + empHrs);
+            System.out.println("Day# " + totalWorkingDays + " Emp hrs: " + empHrs);
         }
         int totalEmpWage = totalEmpHrs * EMP_RATE_PER_HOUR;
         System.out.println("Total Emp Wage: " + totalEmpWage);
