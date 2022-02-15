@@ -10,28 +10,36 @@ public class EmpWageBuilder {
     public static void main(String[] args) {
         System.out.println("Welcome To Employee Wage builder Using OOPS concepts");
         EmpWageBuilder empWage = new EmpWageBuilder();
-        double a = empWage.empAttendance();
-        empWage.empDailyWages(a);
+        int attendance = empWage.empAttendance();
+        empWage.empDailyWages(attendance);
     }
 
-    public double empAttendance() {
-        double empCheck = Math.floor(Math.random() * 10) % 3;
-        if (empCheck == IS_FULL_TIME) {
+    public int empAttendance() {
+        int empCheck = (int)Math.floor(Math.random() * 10) % 3;
+        switch (empCheck) {
+            case IS_FULL_TIME:
             System.out.println("Employee is Present full-time");
-        } else if (empCheck == IS_PART_TIME) {
+            break;
+            case IS_PART_TIME:
             System.out.println("Employee is Present part-time");
-        }else {
+            break;
+            default:
             System.out.println("Employee is Absent");
         }
         return empCheck;
     }
 
-    public void empDailyWages(double empCheck) {
-        if (empCheck == IS_FULL_TIME)
-            empHrs = 8;
-        else if(empCheck==IS_PART_TIME)
-            empHrs = 4;
-
+    public void empDailyWages(int empCheck) {
+        switch (empCheck) {
+            case IS_FULL_TIME:
+                empHrs = 8;
+                break;
+            case IS_PART_TIME:
+                empHrs =4;
+                break;
+            default:
+                empHrs=0;
+        }
         empWage = empHrs * EMP_RATE_PER_HOUR;
         System.out.println("Emp Wage: " + empWage);
     }
